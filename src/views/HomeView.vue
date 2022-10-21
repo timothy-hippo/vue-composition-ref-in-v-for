@@ -3,7 +3,7 @@
     <nav>
       <ul>
         <li v-for="(item, index) in box" :key="index">
-          <a href="#" @click="goTarget(item)">{{item}}</a>
+          <a href="#" @click.prevent="goTarget(item)">{{item+1}}</a>
         </li>
       </ul>
      </nav>
@@ -33,6 +33,7 @@ export default {
     const goTarget = (item) => {
       const target = document.querySelector(`#item${item}`)
       const scrollTop = target.offsetTop
+      console.log('scrollTop', scrollTop)
       window.scrollTo({ top: scrollTop, behavior: 'smooth' })
     }
     return {
